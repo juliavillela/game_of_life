@@ -48,12 +48,33 @@ button{
     margin-top: 2rem;
 }
 
+.mb-1{
+    margin-bottom: .6rem;
+}
+
 .p-1{
     padding: .3rem;
 }
 
 .p-2{
     padding: 1rem;
+}
+
+.full-width{
+    width: 400px;
+}
+
+.center-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.space-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* -------- MAIN SCREEN ---------- */
@@ -86,6 +107,9 @@ button{
         width: 330px;
     }
     .crt-screen{
+        width: 330px;
+    }
+    .full-width{
         width: 330px;
     }
 }
