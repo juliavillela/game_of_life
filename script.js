@@ -89,11 +89,15 @@ function loop(initialState, modifier, targetEl, interval){
     const looper = setInterval(()=>{
         if (running){
             generationCount++
-            state = modifier(state)
-            draw(state, targetEl)
-            updateGenerationCount()
-            currentState = state
-            
+            const[changes, newState] = modifier(state)
+            state = newState
+            if (changes > 0){
+                draw(state, targetEl)
+                updateGenerationCount()
+                currentState = state
+            } else {
+                running = false
+            }
         } else {
             clearInterval(looper);
         }
@@ -104,22 +108,29 @@ function loop(initialState, modifier, targetEl, interval){
 function gameOfLife(state){
     const newState = []
     const axis = state.length
+    let changes = 0
 
     for (let row = 0; row < axis; row++){
         newState[row] = []
         for (let col=0; col < axis; col++){
             const value = state[row][col]
             const liveNeighbours = getLiveNeighboursCount(row, col, state)
+            let newValue;
             if (liveNeighbours == 3){ // remain or come alive 
-                newState[row][col] = 1
+                newValue = 1
             } else if (value == 1 && liveNeighbours == 2){ //remain alive
-                newState[row][col] = 1
+                newValue = 1
             } else { // die or remain dead
-                newState[row][col] = 0 
+                newValue = 0 
+            }
+            newState[row][col] = newValue
+            if(newValue != value){
+                changes++
             }
         }
     }
-    return newState
+    console.log(changes)
+    return [changes,newState]
 }
 
 function getLiveNeighboursCount(x,y,state){
