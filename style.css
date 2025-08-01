@@ -1,0 +1,226 @@
+:root{
+    --light-beige: #f2f2bd;
+    --beige: #dedebf;
+    --darker-beige: #aeae99;
+    --green: #26e132ff;
+    --black: #403A3A;
+}
+
+
+/* -------- RESET ---------- */
+
+body{
+    background-color: var(--beige);
+    margin: 0;
+    color: var(--black)
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.main-container{
+    padding: 1rem; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+}
+/* -------- UTILITIES ---------- */
+
+.bytesized-regular {
+  font-family: "Bytesized", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30pt;
+}
+
+.mt-1{
+    margin-top: .6rem;
+}
+
+.mt-2{
+    margin-top: 2rem;
+}
+
+.p-1{
+    padding: .3rem;
+}
+
+.p-2{
+    padding: 1rem;
+}
+
+/* -------- MAIN SCREEN ---------- */
+.canvas-container{
+    border-radius: 15px; /* For a slightly rounded bezel */
+    width: 400px;
+    height: 400px;
+    contain: content;
+    box-shadow: -3px -3px 6px 0px rgb(0 0 0 / 35%);
+}
+
+.crt-screen {
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0) 27%,
+        rgba(0, 0, 0, 0.15) 75%,
+        rgba(0, 0, 0, 0.4) 100%);
+    border-radius: 10px; /* For a slightly rounded bezel */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Inner shadow for depth */
+    position: absolute;
+    z-index: 8;
+    width: 400px;
+    height: 400px;
+}
+
+.screen-border{
+    background-color: var(--darker-beige);
+    box-shadow: inset -3px -3px 9px 2px var(--light-beige);
+}
+
+.main-screen .screen-border{
+    padding: .5rem;
+    border-radius: 15px;
+} 
+
+.secondary-screen{
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.secondary-screen .screen-border{
+    padding: .3rem;
+    border-radius: 3pt;
+}
+
+.secondary-display{
+    background-color: var(--black);
+    color: var(--green);
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+    padding: 1rem;
+    font-size: 14pt;
+    border-radius: 3pt;
+}
+
+.secondary-screen #generation-count{
+    display: inline-block;
+    width: 5ch; /* to allow for up to 5 digits*/
+}
+
+
+/* -------- BUTTONS ---------- */
+
+.bevel{
+    background-color: var(--beige);
+    padding: 3px;
+    border-radius: 12px;
+    box-shadow: inset -3px -3px 9px 2px #f2f2bd, inset 2px 4px 3px #000000ad;
+    display: inline-block;
+    margin: 1rem .6rem;
+}
+
+.brick-button{
+    --bright: lch(99 25.76 99.21);
+    --light: lch(88 15.76 104.09);
+    --shadow: lch(70 23.56 99.21);
+    --text: lch(34 19.76 99.21);
+
+    font-size: 14pt;
+    font-weight: bold;
+    padding: .4rem .6rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px #000000b3, 2px 4px 3px #0000008a;
+    background-color: var(--beige);
+    position: relative;
+    top: -1px;
+    left: -1px;
+
+    background: linear-gradient(var(--light), var(--shadow));
+    color: var(--text);
+    text-shadow: 2px 1px var(--light);
+    box-shadow: inset 1px 3px 4px 1px var(--bright), 1px 1px 2px #000000b3, 2px 4px 3px #0000008a;
+
+}
+
+.brick-button:active{
+    top: 0px;
+    left: 0px;
+    box-shadow:  1px 1px 2px #000000b3, inset 2px 2px 2px #0000008f;
+}
+
+.button-red{
+    --bright: lch(80 68 35.31);
+    --light: lch(63 58.02 35.31);
+    --shadow: lch(47 48.02 35.31);
+    --text: lch(32 42.56 35.31);
+
+    background: linear-gradient(var(--light), var(--shadow));
+    color: var(--text);
+    text-shadow: 2px 1px var(--light);
+    box-shadow: inset 1px 3px 4px 1px #ff7460, 1px 1px 2px #000000b3, 2px 4px 3px #0000008a;
+}
+
+.button-purple{
+    --bright: lch(70 48 309.83);
+    --light: lch(53 38.02 309.83);
+    --shadow: lch(37 28.02 309.83);
+    --text: lch(6.13% 37.91 309.83);
+
+    background: linear-gradient(var(--light), var(--shadow));
+    color: var(--text);
+    text-shadow: 2px 1px var(--light);
+    box-shadow: inset 1px 3px 4px 1px var(--bright), 1px 1px 2px #000000b3, 2px 4px 3px #0000008a;
+}
+
+/* -------- RANGE INPUT ---------- */
+.settings-area{
+    border-radius: 12px;
+    box-shadow: 4px 3px 3px #00000061, 
+        inset 2px 2px 3px #00000061, 
+        inset -2px -2px 3px var(--light-beige), 
+        -3px -8px 4px var(--light-beige);
+    outline: var(--light-beige);
+    outline: solid 3px var(--beige);
+}
+
+input[type="range"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none; 
+  /* creating a custom design */
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  background-color: var(--black);
+  height: 3px;
+  margin: 20px auto;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 30px;
+    width: 30px;
+    background-color: var(--darker-beige);
+    background: radial-gradient(var(--beige) 50%, var(--darker-beige) 100%);
+    border-radius: 29%;
+    box-shadow: 1px 3px 4px #00000091, inset 4px 9px 7px var(--light-beige);
+}
+
+.settings-label{
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 16pt;
+    color: var(--darker-beige);
+    text-shadow: 1px 2px 0px var(--light-beige);
+}

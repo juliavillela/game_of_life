@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bytesized&family=Space+Grotesk:wght@300..700&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-container">
+        <span class="bytesized-regular">GAME OF LIFE</span>
+        <div class="main-screen">
+            <div class="screen-border">
+                <div class="canvas-container">
+                    <div class="crt-screen">
+                    </div>
+                    <div>
+                        <canvas id="pixelCanvas" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-1">
+            <div class="secondary-screen">
+                <div class="screen-border">
+                    <div class="secondary-display">
+                        <div>generation: <span id="generation-count"> 1 </span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bevel">
+                <button id="startButton" onclick="handleStartClick()" class="brick-button button-red">
+                    START
+                </button>
+            </div>
+            <div class="bevel">
+                <button id="stopButton" onclick="handleStopClick()" class="brick-button button-red">
+                    STOP
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-1 settings-area">
+            <div class="p-2">
+                <div class="mt-1">
+                    <label class="settings-label">SEED SIZE</label>
+                    <input type="range" min="5" max="80" id="seed-size-range"/>
+                </div>
+                <div class="mt-1">
+                    <label class="settings-label">LIVE RATIO</label>
+                    <input type="range" min="0.1" step="0.01" max="1" id="live-ratio-range"/>
+                </div>
+            </div>
+            <div class="bevel mt-1">
+                <button id="seedButton" onclick="handleSeedClick()" class="brick-button button-red">
+                    REGENERATE SEED
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
