@@ -84,7 +84,6 @@ function draw(state, canvasEl){
 }
 
 function loop(initialState, modifier, targetEl, interval){
-    console.log("starting loop", initialState)
     let state = initialState
     const looper = setInterval(()=>{
         if (running){
@@ -129,7 +128,6 @@ function gameOfLife(state){
             }
         }
     }
-    console.log(changes)
     return [changes,newState]
 }
 
