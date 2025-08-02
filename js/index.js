@@ -67,6 +67,7 @@ function updateGenerationCount(){
     counter.innerHTML = generationCount
 }
 
+// game loop
 function loop(initialState, modifier, targetEl, interval){
     let state = initialState
     const looper = setInterval(()=>{
