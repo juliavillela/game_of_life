@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bytesized&family=Space+Grotesk:wght@300..700&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Game of life</title>
+</head>
+<body>
+   <div class="main-container">
+        <span class="bytesized-regular">GAME OF LIFE</span>
+        <div class="center-content">
+            <canvas width="60" height="60" id="square-example"></canvas>
+        </div>
+        <a class="link" href="index.html">play</a>
+        <div class="about-page p-2">
+            <h3>What is happening?</h3>
+            <p>
+            Game of life is a type of 
+            <a class="link" href="https://en.wikipedia.org/wiki/Cellular_automaton">cellular automaton</a>
+            created by mathematician John Conway in the 1970's.
+            It's not a game you actually play but a kind of simulation:
+            like a small digital universe where each black pixel is
+            a tiny live being. At each step of the animation (each frame) 
+            a pixel either stays alive (remains black) or dies (disappears).
+            </p>
+            <p>
+            Life and death are determined by a few simple rules that take into account how many neighbors
+            each pixel has.
+            If there are too many it will die from overpopulation. Too few it will die from underpopulation.
+            When conditions are just right, three beings come together and a new pixel is born.
+            </p>
+            <p>
+            The interesting thing is that, even though the rules are simple, 
+            they give rise to surprisingly complex behavior. 
+            Some patterns move across the screen like tiny creatures. 
+            Others loop forever in place, or multiply into new shapes.
+            </p>
+            <h3 class="mt-2">How it works?</h3>
+            <p>
+            The simulation starts with a randomly generated seed: a grid made up of live and dead pixels.
+            You can control how large the grid is using <strong>seed size</strong>,
+            and adjust how many of the initial pixels are alive using <strong>live ratio</strong>.
+            Then press <strong>regenerate seed</strong> and <strong>start</strong> to run the simulation,
+            or <strong>stop</strong> to pause it.
+            The simulation will automatically stop if it reaches full stability
+            (that is, when no more pixels are born or die).
+            Otherwise it will continue running, potentially forever.
+            </p>
+            <h3 class="mt-2">The Rules.</h3>
+            <p>
+            At each step of the animation, the same set of rules is applied to every cell (pixel) in the grid.
+            A cell's neighborhood consists of the 8 surrounding pixels: those directly above, below, beside,
+            and diagonally adjacent to it.
+            </p>
+            <p>
+            Based on how many of these neighbors are alive, each cell will either survive, die, or come to life:
+            </p>
+            <ul>
+                <li>A live cell with fewer than 2 live neighbors dies (underpopulation).</li>
+                <li>A live cell with more than 3 live neighbors dies (overpopulation).</li>
+                <li>A dead cell with exactly 3 live neighbors becomes alive (reproduction).</li>
+            </ul>
+            <h3 class="mt-2">About the implementation.</h3>
+            <p>
+            I built this project as a whimsical take on visualizing the Game of Life.  
+            The interface is styled like an old retro machine 
+            to give the impression that you're observing a tiny, contained world.  
+            It's meant to feel a bit like a digital creature in a jar, or an alternative Tamagotchi.  
+            A small universe that lives, grows, and fades on its own.
+            </p>
+            <p>
+            If you're curious about the code or want to explore further,  
+            you can find the full source on  
+            <a class="link" href="https://github.com/juliavillela/game_of_life" target="_blank">GitHub</a>.
+            </p>
+        </div>
+   </div>
+    <script src="js/game.js"></script>
+    <script src="js/about.js"></script>
+</body>
+</html>
