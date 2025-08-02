@@ -1,4 +1,4 @@
-const color_map = {
+const colorMap = {
     0: '#26e132ff', // dead color
     1: '#403A3A', // alive color
 }
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("pixelCanvas")
     const initial = generateSeed(gridAxis, initialLiveRatio, seedSize)
     currentState = initial
-    draw(currentState, canvas)
+    draw(currentState, canvas, colorMap)
 })
 
 // event handlers
@@ -37,7 +37,7 @@ function handleSeedClick(){
     updateGenerationCount()
     currentState = generateSeed(gridAxis, initialLiveRatio, seedSize)
     const canvas = document.getElementById("pixelCanvas")
-    draw(currentState, canvas)
+    draw(currentState, canvas, colorMap)
 }
 
 function handleStartClick(){
@@ -76,7 +76,7 @@ function loop(initialState, modifier, targetEl, interval){
             const[changes, newState] = modifier(state)
             state = newState
             if (changes > 0){
-                draw(state, targetEl)
+                draw(state, targetEl, colorMap)
                 updateGenerationCount()
                 currentState = state
             } else {
