@@ -68,6 +68,19 @@ function updateGenerationCount(){
 }
 
 // game loop
+
+/**
+ * Runs an animation loop that repeatedly updates and renders the state of the grid.
+ * 
+ * Stops if an iteration produces no changes in state.
+ * Assumes the presence of predefined external global variables:
+ * `running` (bool), `generationCount`(number), `currentState`(2D array), `colorMap`(Object)
+ * 
+ * @param {number[][]} initialState The initial grid state to start the loop from.
+ * @param {function} modifier A function that computes the next state and number of changes.
+ * @param {HTMLCanvasElement} targetEl The canvas element where the grid is drawn.
+ * @param {number} interval  Time in milliseconds between each update.
+ */
 function loop(initialState, modifier, targetEl, interval){
     let state = initialState
     const looper = setInterval(()=>{
